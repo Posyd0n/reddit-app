@@ -1,14 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import Post from '../components/Posts'
 
 const data = {
     posts: [
         {
-            "id": 1,
-            "title": 'Goodbye World!',
-            "link": "https://google.com",
-            "imageUrl": "https://picsum.photos/200/300"
+            id: 1,
+            title: 'Goodbye World!',
+            link: "https://google.com",
+            imageUrl: "https://picsum.photos/600/900"
+        },
+        {
+            id: 2,
+            title: 'Welcome to reddit',
+            link: "https://google.com",
+            imageUrl: "https://picsum.photos/600/900"
         }
     ]
 }
@@ -22,7 +29,7 @@ export default function Posts(props) {
             <FlatList
                 data={posts}
                 keyExtractor={(item, index) => `${index}`}
-                renderItem={({item, index}) => <Text>{item.title}</Text>}
+                renderItem={({item, index}) => <Post post={item} />}
             />
         </View> 
     )
